@@ -1,7 +1,7 @@
 <template lang="pug">
-div(class="bg-white max-w-xs rounded overflow-hidden shadow-lg")
+div(class="bg-white flex-col md:max-w-xs rounded overflow-hidden shadow-lg")
     div(class='px-6 py-4 text-center border-b bg-grey')
-      h2 Quick Add A Website
+      h2 Quick Add Site
     form.flex.flex-col(@submit.prevent='AddWebsite')
       input-box(
         placeholder="example.com"

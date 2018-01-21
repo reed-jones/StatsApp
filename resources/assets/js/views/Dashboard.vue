@@ -1,18 +1,21 @@
 <template lang="pug">
 .dashboard-page.flex.flex-col
-  .flex
-    add-website-widget(class='m-6')
-  .full-width
-    website-list(class='m-6')
+  div(class='flex flex-col md:flex-row container mx-auto')
+    add-website-widget(class='my-3 md:m-6')
+    stats-widget(class='my-3 md:m-6')
+  div(class='flex flex-col md:flex-row container')
+    website-list(class='my-3 md:m-6')
 
 </template>
 
 <script>
 import AddWebsiteWidget from '../components/AddWebsiteWidget'
+import StatsWidget from '../components/StatsWidget'
 import WebsiteList from '../components/WebsiteList'
 export default {
   components: {
     AddWebsiteWidget,
+    StatsWidget,
     WebsiteList,
   },
 }

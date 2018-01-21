@@ -1,7 +1,7 @@
 <template lang="pug">
 .page.min-h-full.flex.flex-col
   spa-navbar.flex.flex-row.items-center.justify-between
-  router-view.router-view.p-8
+  router-view.router-view.p-8.justify-center.items-center
   spa-footer.flex.flex-row.items-center.justify-center
 </template>
 
