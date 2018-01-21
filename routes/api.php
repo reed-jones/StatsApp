@@ -20,6 +20,19 @@ use Illuminate\Http\Request;
 Route::group([
 
     'middleware' => 'api',
+    'prefix' => 'website'
+
+], function ($router) {
+
+    Route::post('/', 'WebsiteController@store');
+    Route::get('/', 'WebsiteController@index');
+    Route::delete('/{website}', 'WebsiteController@destroy');
+
+});
+
+Route::group([
+
+    'middleware' => 'api',
     'prefix' => 'auth'
 
 ], function ($router) {

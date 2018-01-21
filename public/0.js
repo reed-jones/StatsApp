@@ -1,66 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 61:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(68)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(70)
-/* template */
-var __vue_template__ = __webpack_require__(83)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\views\\Authorization.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0caee53c", Component.options)
-  } else {
-    hotAPI.reload("data-v-0caee53c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 63:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(75)
+var __vue_script__ = __webpack_require__(102)
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(103)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -77,7 +25,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Auth\\InputBox.vue"
+Component.options.__file = "resources\\assets\\js\\components\\InputBox.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -86,9 +34,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1b910de4", Component.options)
+    hotAPI.createRecord("data-v-33c28f98", Component.options)
   } else {
-    hotAPI.reload("data-v-1b910de4", Component.options)
+    hotAPI.reload("data-v-33c28f98", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -100,13 +48,104 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 68:
+/***/ 102:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    type: {
+      type: String,
+      default: 'text'
+    },
+    id: {
+      type: String,
+      default: ''
+    },
+    errors: {
+      type: String,
+      default: ''
+    },
+    value: ''
+  },
+  data: function data() {
+    return {
+      labelCSS: 'block text-grey font-bold md:text-right mb-1 md:mb-0 pr-4'
+    };
+  },
+
+  computed: {
+    inputCSS: function inputCSS() {
+      var base = 'bg-grey-lighter appearance-none border-2 border-grey-lighter hover:border-purple rounded w-full py-2 px-4 text-grey-darker';
+      if (this.errors) base += ' border-red';
+      return base;
+    }
+  },
+  methods: {
+    updateValue: function updateValue() {
+      this.$emit('input', this.$refs.inputValue.value);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "md:flex md:items-center px-6 py-4" }, [
+    _c("div", { staticClass: "md:w-1/3" }, [
+      _c(
+        "label",
+        { class: _vm.labelCSS, attrs: { for: _vm.id } },
+        [_vm._t("default")],
+        2
+      )
+    ]),
+    _c("div", { staticClass: "md:w-2/3" }, [
+      _c("input", {
+        ref: "inputValue",
+        class: _vm.inputCSS,
+        attrs: { id: _vm.id, type: _vm.type, placeholder: _vm.placeholder },
+        domProps: { value: _vm.value },
+        on: { input: _vm.updateValue }
+      }),
+      _c("p", { staticClass: "text-red text-xs italic pt-2" }, [
+        _vm._v(_vm._s(_vm.errors))
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-33c28f98", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 108:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(69);
+var content = __webpack_require__(109);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -127,7 +166,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 69:
+/***/ 109:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -142,14 +181,14 @@ exports.push([module.i, "\n.authorization-page {\n  background-image: linear-gra
 
 /***/ }),
 
-/***/ 70:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Auth_LoginCard__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Auth_LoginCard__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Auth_LoginCard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Auth_LoginCard__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Auth_RegisterCard__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Auth_RegisterCard__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Auth_RegisterCard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Auth_RegisterCard__);
 
 
@@ -175,19 +214,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 71:
+/***/ 111:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(72)
+  __webpack_require__(112)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(74)
+var __vue_script__ = __webpack_require__(114)
 /* template */
-var __vue_template__ = __webpack_require__(77)
+var __vue_template__ = __webpack_require__(115)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -227,13 +266,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 72:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(73);
+var content = __webpack_require__(113);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -254,7 +293,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 73:
+/***/ 113:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -269,14 +308,14 @@ exports.push([module.i, "", ""]);
 
 /***/ }),
 
-/***/ 74:
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__InputBox__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__InputBox__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__InputBox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__InputBox__);
 
 
@@ -329,98 +368,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 75:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    type: {
-      type: String,
-      default: 'text'
-    },
-    id: {
-      type: String,
-      default: ''
-    },
-    errors: {
-      type: String,
-      default: ''
-    },
-    value: ''
-  },
-  data: function data() {
-    return {
-      labelCSS: 'block text-grey font-bold md:text-right mb-1 md:mb-0 pr-4'
-    };
-  },
-
-  computed: {
-    inputCSS: function inputCSS() {
-      var base = 'bg-grey-lighter appearance-none border-2 border-grey-lighter hover:border-purple rounded w-full py-2 px-4 text-grey-darker';
-      if (this.errors) base += ' border-red';
-      return base;
-    }
-  },
-  methods: {
-    updateValue: function updateValue() {
-      this.$emit('input', this.$refs.inputValue.value);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ 76:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "md:flex md:items-center px-6 py-4" }, [
-    _c("div", { staticClass: "md:w-1/3" }, [
-      _c(
-        "label",
-        { class: _vm.labelCSS, attrs: { for: _vm.id } },
-        [_vm._t("default")],
-        2
-      )
-    ]),
-    _c("div", { staticClass: "md:w-2/3" }, [
-      _c("input", {
-        ref: "inputValue",
-        class: _vm.inputCSS,
-        attrs: { id: _vm.id, type: _vm.type, placeholder: _vm.placeholder },
-        domProps: { value: _vm.value },
-        on: { input: _vm.updateValue }
-      }),
-      _c("p", { staticClass: "text-red text-xs italic pt-2" }, [
-        _vm._v(_vm._s(_vm.errors))
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1b910de4", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 77:
+/***/ 115:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -541,19 +489,19 @@ if (false) {
 
 /***/ }),
 
-/***/ 78:
+/***/ 116:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(79)
+  __webpack_require__(117)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(81)
+var __vue_script__ = __webpack_require__(119)
 /* template */
-var __vue_template__ = __webpack_require__(82)
+var __vue_template__ = __webpack_require__(120)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -593,13 +541,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 79:
+/***/ 117:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(80);
+var content = __webpack_require__(118);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -620,7 +568,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 80:
+/***/ 118:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -635,14 +583,14 @@ exports.push([module.i, "", ""]);
 
 /***/ }),
 
-/***/ 81:
+/***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__InputBox__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__InputBox__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__InputBox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__InputBox__);
 
 
@@ -691,7 +639,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 82:
+/***/ 120:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -847,7 +795,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 83:
+/***/ 121:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -905,6 +853,58 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-0caee53c", module.exports)
   }
 }
+
+/***/ }),
+
+/***/ 99:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(108)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(110)
+/* template */
+var __vue_template__ = __webpack_require__(121)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\Authorization.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0caee53c", Component.options)
+  } else {
+    hotAPI.reload("data-v-0caee53c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
 
 /***/ })
 

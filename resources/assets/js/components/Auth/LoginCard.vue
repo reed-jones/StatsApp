@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import InputBox from './InputBox'
+import InputBox from '../InputBox'
 export default {
   components: {
     InputBox,

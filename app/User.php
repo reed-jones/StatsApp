@@ -48,4 +48,12 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    /**
+     * Get the websites belonging to the user.
+     */
+    public function websites()
+    {
+        return $this->hasMany('App\Website');
+    }
 }

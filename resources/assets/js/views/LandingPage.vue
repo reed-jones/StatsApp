@@ -1,5 +1,5 @@
 <template lang="pug">
-.landing-page.flex.flex-col.items-center.justify-center
+.flex.flex-col.items-center.justify-center.landing-page
   h1 You built the thing
   h2 We'll just tell you when it's broken
 </template>
