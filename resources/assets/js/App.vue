@@ -16,22 +16,23 @@ export default {
   mounted() {
     if (localStorage.jwtToken) {
       this.$store.commit('setJWT', localStorage.jwtToken)
+
       this.getUser()
     }
   },
   methods: {
     getUser() {
-      axios.post('/api/auth/me').then(data => {
-        this.$store
-          .commit('setUser', {
-            name: data.data.name,
-            email: data.data.email,
-            verified: data.data.verified,
+      axios
+        .post('/api/auth/me')
+        .then(data => {
+          this.$store.commit('setUser', {
+            ...data.data,
           })
-          .catch(data => {
-            this.$store.commit('logout')
-          })
-      })
+        })
+        .catch(data => {
+          this.$store.commit('logout')
+          this.$router.push({ name: 'home' })
+        })
     },
   },
 }

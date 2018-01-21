@@ -2,8 +2,9 @@
 nav.nav.flex-center
   .left
     h1 #[router-link(to="/") StatsApp]
-  .right(v-if='$store.state.user')
-    a Logout
+  .right(v-if='$store.state.jwtToken')
+    router-link(to='/dash') Dashboard
+    a(href='/' @click.prevent='logout') Logout
   .right(v-else)
     router-link(to='/login') Login
     router-link(to='/register') Signup
@@ -15,6 +16,12 @@ export default {
     return {
       navbar: true,
     }
+  },
+  methods: {
+    logout() {
+      this.$store.commit('logout')
+      this.$router.push({ name: 'home' })
+    },
   },
 }
 </script>

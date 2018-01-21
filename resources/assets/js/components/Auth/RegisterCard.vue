@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+form(@submit.prevent='AttemptRegister')
   ul(class="list-reset flex justify-between border-b")
     li(class="mr-1")
       a(class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold cursor-pointer" @click='$emit("loginTab")') Login
@@ -7,16 +7,35 @@ div
     li(class="-mb-px ml-1")
       a(class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-dark font-semibold cursor-pointer") Register
 
-  input-box(placeholder="Jane Doe" type="text" v-model='name')
+  input-box(
+    placeholder="Jane Doe"
+    type="text"
+    id='name'
+    v-model.trim='form.name')
     | Name
-  input-box(placeholder="Jane Doe" type="text" v-model='username')
-    | Username
-  input-box(placeholder="hunter2" type="password" v-model='password')
+  input-box(
+    placeholder="name@example.com"
+    type="text"
+    id='email'
+    v-model.trim='form.email'
+    :errors='emailError')
+    | Email
+  input-box(
+    placeholder="hunter2"
+    type="password"
+    id='password'
+    v-model='form.password'
+    :errors='passwordError')
     | Password
-  input-box(placeholder="hunter2" type="password" v-model='passwordConfirm')
+  input-box(
+    placeholder="hunter2"
+    type="password"
+    id='passconf'
+    v-model='form.password_confirmation'
+    :errors='passwordConfirmError')
     | Password Confirmation
 
-  button(class="bg-blue hover:bg-blue-dark text-white font-bold mb-6 mr-6 py-2 px-4 rounded-full float-right" @click='AttemptRegister') Register
+  button(class="bg-blue hover:bg-blue-dark text-white font-bold mb-6 mr-6 py-2 px-4 rounded-full float-right" type='submit') Register
 </template>
 
 <script>
@@ -27,15 +46,37 @@ export default {
   },
   data() {
     return {
-      name: '',
-      username: '',
-      password: '',
-      passwordConfirm: '',
+      form: {
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+      },
+      errors: {},
     }
+  },
+  computed: {
+    emailError() {
+      return this.errors.email ? this.errors.email[0] : ''
+    },
+    passwordError() {
+      return this.errors.password ? this.errors.password[0] : ''
+    },
+    passwordConfirmError() {
+      return this.passwordError.length ? ' ' : ''
+    },
   },
   methods: {
     AttemptRegister() {
-      console.error('user not registered')
+      axios
+        .post('/api/auth/register', { ...this.form })
+        .then(data => {
+          this.$router.push({ name: 'login' })
+        })
+        .catch(error => {
+          console.log(error.response.data.errors)
+          this.errors = { ...error.response.data.errors }
+        })
     },
   },
 }

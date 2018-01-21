@@ -4,6 +4,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
+    loaded: true,
     user: false,
     jwtToken: false,
   },
@@ -18,7 +19,7 @@ const store = new Vuex.Store({
       // save in store for faster access
       state.jwtToken = token
     },
-    newUser(state, user) {
+    setUser(state, user) {
       state.user = user
     },
     logout(state) {
