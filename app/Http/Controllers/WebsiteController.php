@@ -14,7 +14,11 @@ class WebsiteController extends Controller
      */
     public function index()
     {
-        return \Auth::user()->websites;
+        // return \Auth::user()->websites;
+
+        return Website::where('user_id', \Auth::user()->id)
+        ->with('sslLatest')
+        ->get();
     }
 
     /**

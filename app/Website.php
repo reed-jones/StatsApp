@@ -13,4 +13,20 @@ class Website extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * Get the websites belonging to the user.
+     */
+    public function sslAll()
+    {
+        return $this->hasMany('App\sslStatus');
+    }
+
+    /**
+     * Get the websites belonging to the user.
+     */
+    public function sslLatest()
+    {
+        return $this->hasOne('App\sslStatus')->latest();
+    }
 }
