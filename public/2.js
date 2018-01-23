@@ -70,10 +70,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "flex flex-col items-center justify-center landing-page" },
-      [
-        _c("h1", [_vm._v("You built the thing")]),
-        _c("h2", [_vm._v("We'll just tell you when it's broken")])
-      ]
+      [_c("h1", [_vm._v("The uptime monitor that tells you whats up.")])]
     )
   }
 ]

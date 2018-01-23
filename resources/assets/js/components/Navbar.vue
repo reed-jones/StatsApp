@@ -1,7 +1,7 @@
 <template lang="pug">
 nav.nav.flex-center
   .left
-    h1 #[router-link(to="/") StatsApp]
+    h1 #[router-link(to="/") Updog]
   .right(v-if='$store.state.jwtToken')
     router-link(to='/dash') Dashboard
     a(href='/' @click.prevent='logout') Logout

@@ -13430,7 +13430,7 @@ var render = function() {
     _c("div", { staticClass: "left" }, [
       _c(
         "h1",
-        [_c("router-link", { attrs: { to: "/" } }, [_vm._v("StatsApp")])],
+        [_c("router-link", { attrs: { to: "/" } }, [_vm._v("Updog")])],
         1
       )
     ]),

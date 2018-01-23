@@ -1,7 +1,6 @@
 <template lang="pug">
 .flex.flex-col.items-center.justify-center.landing-page
-  h1 You built the thing
-  h2 We'll just tell you when it's broken
+  h1 The uptime monitor that tells you whats up.
 </template>
 
 <script>
