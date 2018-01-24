@@ -14,7 +14,9 @@ div(class="bg-white flex-col md:max-w-xs rounded overflow-hidden shadow-lg")
 
 <script>
 import InputBox from './InputBox'
+import { getWebsites } from '../mixins/mixins'
 export default {
+  mixins: [getWebsites],
   name: 'AddWebsiteWidget',
   components: {
     InputBox,
@@ -50,10 +52,16 @@ export default {
       axios
         .post('/api/website', { ...this.sitesForm })
         .then(data => {
-          console.log(data)
+          this.getWebsites()
+          preValidation = {
+            url: '',
+            name: '',
+          }
         })
         .catch(error => {
-          this.errors = error.response.data.errors.url[0]
+          console.log(error)
+          this.errors = 'Uh Oh! This doesnt seem valid'
+          // this.errors = error.response.data.errors.url[0]
         })
     },
   },

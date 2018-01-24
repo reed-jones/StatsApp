@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Website;
+use App\Uptime;
+use App\sslStatus;
+use App\Library\Ping;
+use Spatie\SslCertificate\SslCertificate;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -18,6 +22,7 @@ class WebsiteController extends Controller
 
         return Website::where('user_id', \Auth::user()->id)
         ->with('sslLatest')
+        ->with('uptimeAll')
         ->get();
     }
 
@@ -42,14 +47,62 @@ class WebsiteController extends Controller
         // validation...
         $validatedData = $request->validate([
             // 'url' => 'required|active_url', // needs DNS
-            'url' => 'required|url',
+            'url' => 'bail|required|url',
         ]);
+        $regex = '/^(https?:\/\/)(.+)/';
+        $matches = [];
+        preg_match($regex, $request->url, $matches);
+
+        $protocol = $matches[1];
+        $url = $matches[2];
+
+        if ($url) {
+            return response(
+            [
+                'error' => 'Invalid URL'
+            ], 400);
+        }
 
         $website = new Website();
         $website->user_id = $request->user()->id;
-        $website->url = $request->url;
+        $website->url = $url;
+        $website->ssl = $protocol === 'https://';
         $website->name = $request->name;
         $website->save();
+
+        // now attempt first ping
+        $ping = new Ping($website->url);
+        $latency = $ping->ping();
+        $ip = $ping->getIpAddress();
+        $pageLoad = null;
+        if ($latency) {
+            $time_start = microtime(true);
+            $client = new \GuzzleHttp\Client();
+            $res = $client->request('GET', $website->url);
+            //echo $res->getStatusCode();
+            $t = $res->getBody();
+            $time_end = microtime(true);
+            $pageLoad = number_format($time_end - $time_start, 4, '.', '');
+
+            $website->ipv4 = $ip;
+            $website->save();
+
+            $uptime = new Uptime();
+            $uptime->website_id = $website->id;
+            $uptime->latency = $latency;
+            $uptime->loadSpeed = $pageLoad;
+            $uptime->save();
+
+            if ($website->ssl) {
+                $check = SslCertificate::createForHostName('https://' . $website->url);
+                $cert = new sslStatus();
+                $cert->website_id = $website->id;
+                $cert->valid = $check->isValid(); // returns true if the certificate is currently valid
+                $cert->issuer = $check->getIssuer(); // returns "Let's Encrypt Authority X3"
+                $cert->days_left = $check->expirationDate()->diffInDays(); // returns an int
+                $cert->save();
+            }
+        }
     }
 
     /**

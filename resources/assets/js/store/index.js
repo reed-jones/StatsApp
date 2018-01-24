@@ -4,9 +4,9 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    loaded: true,
     user: false,
     jwtToken: false,
+    websites: []
   },
   mutations: {
     setJWT(state, token) {
@@ -33,6 +33,9 @@ const store = new Vuex.Store({
       state.jwtToken = false
       state.user = false
     },
+    setWebsites(state, sites) {
+      state.websites = sites
+    }
   },
 })
 

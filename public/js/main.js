@@ -13003,7 +13003,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nhtml,\nbody {\n  height: 100%;\n  margin: 0;\n  font-size: 16px;\n}\n/* Layout */\n.router-view {\n  min-height: calc(100vh - 225px);\n  flex: 1 0 auto;\n}\n.nav {\n  height: 75px;\n}\n.footer {\n  height: 150px;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nhtml,\nbody {\n  height: 100%;\n  margin: 0;\n  font-size: 16px;\n  font-family: 'Merriweather Sans', sans-serif;\n}\n/* Layout */\n.router-view {\n  min-height: calc(100vh - 225px);\n  flex: 1 0 auto;\n}\n.nav {\n  height: 75px;\n}\n.footer {\n  height: 150px;\n}\n", ""]);
 
 // exports
 
@@ -13390,7 +13390,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.nav[data-v-cd7fb372] {\n  justify-content: space-between;\n  position: relative;\n  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);\n}\n.nav h1[data-v-cd7fb372],\n.nav a[data-v-cd7fb372] {\n  padding: 0 15px;\n}\n", ""]);
+exports.push([module.i, "\n.nav[data-v-cd7fb372] {\n  justify-content: space-between;\n  position: relative;\n  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);\n}\n.nav .right a[data-v-cd7fb372] {\n  padding: 0 15px;\n  font: 1.2rem 'Righteous', cursive;\n  text-decoration-skip: ink;\n  text-decoration-skip-ink: auto;\n  text-decoration: none;\n}\n.nav h1 a[data-v-cd7fb372] {\n  font: 4rem 'Sedgwick Ave', cursive;\n  font: 4rem 'Righteous', cursive;\n  text-decoration: none;\n}\n.nav h1 a[data-v-cd7fb372],\n.nav h1 a[data-v-cd7fb372]:active,\n.nav h1 a[data-v-cd7fb372]:visited {\n  color: #333;\n}\n.nav h1 a[data-v-cd7fb372]:hover {\n  color: #000;\n}\n.nav a[data-v-cd7fb372],\n.nav a[data-v-cd7fb372]:active,\n.nav a[data-v-cd7fb372]:visited {\n  color: #333;\n}\n.nav a[data-v-cd7fb372]:hover {\n  color: #000;\n}\n", ""]);
 
 // exports
 
@@ -13632,7 +13632,7 @@ var render = function() {
         staticClass: "flex flex-row items-center justify-between"
       }),
       _c("router-view", {
-        staticClass: "router-view p-8 justify-center items-center"
+        staticClass: "router-view md:p-8 justify-center items-center"
       }),
       _c("spa-footer", {
         staticClass: "flex flex-row items-center justify-center"
@@ -16364,9 +16364,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
   state: {
-    loaded: true,
     user: false,
-    jwtToken: false
+    jwtToken: false,
+    websites: []
   },
   mutations: {
     setJWT: function setJWT(state, token) {
@@ -16386,6 +16386,9 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 
       state.jwtToken = false;
       state.user = false;
+    },
+    setWebsites: function setWebsites(state, sites) {
+      state.websites = sites;
     }
   }
 });

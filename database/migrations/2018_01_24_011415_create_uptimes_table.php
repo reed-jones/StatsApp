@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWebsitesTable extends Migration
+class CreateUptimesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,16 @@ class CreateWebsitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('websites', function (Blueprint $table) {
+        Schema::create('uptimes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')
+            $table->integer('website_id')
                 ->unsigned();
-            $table->foreign('user_id')
+            $table->foreign('website_id')
                 ->references('id')
-                ->on('users')
+                ->on('websites')
                 ->onDelete('cascade');
-            $table->string('url');
-            $table->string('name')
-                ->nullable();
-            $table->boolean('ssl')
-                ->default(false);
-            $table->string('ipv4', 15)->nullable();
+            $table->integer('latency');
+            $table->decimal('loadSpeed', 6, 4);
             $table->timestamps();
         });
     }
@@ -38,6 +34,6 @@ class CreateWebsitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('websites');
+        Schema::dropIfExists('uptimes');
     }
 }

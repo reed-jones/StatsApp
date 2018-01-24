@@ -29,4 +29,12 @@ class Website extends Model
     {
         return $this->hasOne('App\sslStatus')->latest();
     }
+
+    /**
+     * Get the websites belonging to the user.
+     */
+    public function uptimeAll()
+    {
+        return $this->hasMany('App\Uptime');
+    }
 }

@@ -31,8 +31,28 @@ export default {
   justify-content space-between
   position relative
   background-image linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)
-  h1,
-  a
+  .right a
     padding 0 15px
+    font 1.2rem  'Righteous', cursive
+    text-decoration-skip ink
+    text-decoration-skip-ink auto
+    text-decoration none
+  h1 a
+    font 4rem 'Sedgwick Ave', cursive
+    font  4rem   'Righteous', cursive
+    text-decoration none
+    &,
+    &:active,
+    &:visited
+      color #333
+    &:hover
+      color #000
+  a,
+  a:active,
+  a:visited
+    color #333
+  a:hover
+    color #000
+
 
 </style>

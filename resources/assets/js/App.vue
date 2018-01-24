@@ -1,7 +1,7 @@
 <template lang="pug">
 .page.min-h-full.flex.flex-col
   spa-navbar.flex.flex-row.items-center.justify-between
-  router-view.router-view.p-8.justify-center.items-center
+  router-view(class='router-view md:p-8 justify-center items-center')
   spa-footer.flex.flex-row.items-center.justify-center
 </template>
 
@@ -45,6 +45,7 @@ html, body
   height 100%
   margin 0
   font-size 16px
+  font-family 'Merriweather Sans', sans-serif
 
 /* Layout */
 navHeight = 75px

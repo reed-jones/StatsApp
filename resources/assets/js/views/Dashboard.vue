@@ -2,9 +2,9 @@
 .dashboard-page.flex.flex-col
   div(class='flex flex-col md:flex-row container mx-auto')
     add-website-widget(class='my-3 md:m-6')
-    stats-widget(class='my-3 md:m-6')
+    stats-widget(v-if='details' class='my-3 md:m-6' :details='details')
   div(class='flex flex-col md:flex-row container')
-    website-list(class='my-3 md:m-6')
+    website-list(class='my-3 md:m-6' @showDetails='showDetails')
 
 </template>
 
@@ -17,6 +17,17 @@ export default {
     AddWebsiteWidget,
     StatsWidget,
     WebsiteList,
+  },
+  data() {
+    return {
+      details: false,
+    }
+  },
+  methods: {
+    showDetails(site) {
+      this.details = site
+      // console.log(JSON.parse(JSON.stringify(site)))
+    },
   },
 }
 </script>

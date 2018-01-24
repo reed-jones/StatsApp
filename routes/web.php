@@ -10,10 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// include_once('../app/Library/Ping.php');
+// use \JJG\Ping;
 
 Route::get('/', function () {
     return view('spa');
 });
+Route::get('/ping', 'UptimeController@index');
 
 // Auth::routes();
 

@@ -5,13 +5,13 @@ webpackJsonp([0],Array(100).concat([
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(129)
+  __webpack_require__(130)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(131)
+var __vue_script__ = __webpack_require__(132)
 /* template */
-var __vue_template__ = __webpack_require__(168)
+var __vue_template__ = __webpack_require__(169)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -213,7 +213,7 @@ if (false) {
 /* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(139);
+__webpack_require__(140);
 var global = __webpack_require__(4);
 var hide = __webpack_require__(22);
 var Iterators = __webpack_require__(102);
@@ -240,15 +240,15 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 "use strict";
 
-var LIBRARY = __webpack_require__(142);
+var LIBRARY = __webpack_require__(143);
 var $export = __webpack_require__(28);
-var redefine = __webpack_require__(143);
+var redefine = __webpack_require__(144);
 var hide = __webpack_require__(22);
 var has = __webpack_require__(25);
 var Iterators = __webpack_require__(102);
-var $iterCreate = __webpack_require__(144);
+var $iterCreate = __webpack_require__(145);
 var setToStringTag = __webpack_require__(108);
-var getPrototypeOf = __webpack_require__(148);
+var getPrototypeOf = __webpack_require__(149);
 var ITERATOR = __webpack_require__(101)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
 var FF_ITERATOR = '@@iterator';
@@ -330,7 +330,7 @@ module.exports = function (it, tag, stat) {
 
 "use strict";
 
-var $at = __webpack_require__(149)(true);
+var $at = __webpack_require__(150)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
 __webpack_require__(107)(String, 'String', function (iterated) {
@@ -378,7 +378,26 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 111 */,
+/* 111 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getWebsites; });
+var getWebsites = {
+  methods: {
+    getWebsites: function getWebsites() {
+      var _this = this;
+
+      axios.get('/api/website').then(function (data) {
+        _this.$store.commit('setWebsites', data.data);
+      });
+    }
+  }
+};
+
+
+
+/***/ }),
 /* 112 */,
 /* 113 */,
 /* 114 */,
@@ -396,13 +415,14 @@ module.exports = function (it) {
 /* 126 */,
 /* 127 */,
 /* 128 */,
-/* 129 */
+/* 129 */,
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(130);
+var content = __webpack_require__(131);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -422,7 +442,7 @@ if(false) {
 }
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -436,16 +456,16 @@ exports.push([module.i, "\n.dashboard-page {\n  background-image: linear-gradien
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_AddWebsiteWidget__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_AddWebsiteWidget__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_AddWebsiteWidget___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_AddWebsiteWidget__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_StatsWidget__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_StatsWidget__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_StatsWidget___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_StatsWidget__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_WebsiteList__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_WebsiteList__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_WebsiteList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_WebsiteList__);
 
 
@@ -457,23 +477,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     AddWebsiteWidget: __WEBPACK_IMPORTED_MODULE_0__components_AddWebsiteWidget___default.a,
     StatsWidget: __WEBPACK_IMPORTED_MODULE_1__components_StatsWidget___default.a,
     WebsiteList: __WEBPACK_IMPORTED_MODULE_2__components_WebsiteList___default.a
+  },
+  data: function data() {
+    return {
+      details: false
+    };
+  },
+
+  methods: {
+    showDetails: function showDetails(site) {
+      this.details = site;
+    }
   }
 });
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(133)
+  __webpack_require__(134)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(135)
+var __vue_script__ = __webpack_require__(136)
 /* template */
-var __vue_template__ = __webpack_require__(155)
+var __vue_template__ = __webpack_require__(158)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -512,13 +543,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(134);
+var content = __webpack_require__(135);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -538,7 +569,7 @@ if(false) {
 }
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -552,23 +583,26 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_slicedToArray__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_slicedToArray__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_slicedToArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_slicedToArray__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__InputBox__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__InputBox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__InputBox__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_mixins__ = __webpack_require__(111);
+
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [__WEBPACK_IMPORTED_MODULE_3__mixins_mixins__["a" /* getWebsites */]],
   name: 'AddWebsiteWidget',
   components: {
     InputBox: __WEBPACK_IMPORTED_MODULE_2__InputBox___default.a
@@ -609,16 +643,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.post('/api/website', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.sitesForm)).then(function (data) {
-        console.log(data);
+        _this.getWebsites();
+        preValidation = {
+          url: '',
+          name: ''
+        };
       }).catch(function (error) {
-        _this.errors = error.response.data.errors.url[0];
+        console.log(error);
+        _this.errors = 'Uh Oh! This doesnt seem valid';
       });
     }
   }
 });
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -626,11 +665,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 exports.__esModule = true;
 
-var _isIterable2 = __webpack_require__(137);
+var _isIterable2 = __webpack_require__(138);
 
 var _isIterable3 = _interopRequireDefault(_isIterable2);
 
-var _getIterator2 = __webpack_require__(151);
+var _getIterator2 = __webpack_require__(152);
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
 
@@ -675,28 +714,28 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 137 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(138), __esModule: true };
-
-/***/ }),
 /* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(106);
-__webpack_require__(109);
-module.exports = __webpack_require__(150);
-
+module.exports = { "default": __webpack_require__(139), __esModule: true };
 
 /***/ }),
 /* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(106);
+__webpack_require__(109);
+module.exports = __webpack_require__(151);
+
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
-var addToUnscopables = __webpack_require__(140);
-var step = __webpack_require__(141);
+var addToUnscopables = __webpack_require__(141);
+var step = __webpack_require__(142);
 var Iterators = __webpack_require__(102);
 var toIObject = __webpack_require__(12);
 
@@ -731,14 +770,14 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports) {
 
 module.exports = function () { /* empty */ };
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -747,26 +786,26 @@ module.exports = function (done, value) {
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports) {
 
 module.exports = true;
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(22);
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var create = __webpack_require__(145);
+var create = __webpack_require__(146);
 var descriptor = __webpack_require__(30);
 var setToStringTag = __webpack_require__(108);
 var IteratorPrototype = {};
@@ -781,12 +820,12 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(24);
-var dPs = __webpack_require__(146);
+var dPs = __webpack_require__(147);
 var enumBugKeys = __webpack_require__(35);
 var IE_PROTO = __webpack_require__(27)('IE_PROTO');
 var Empty = function () { /* empty */ };
@@ -801,7 +840,7 @@ var createDict = function () {
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(147).appendChild(iframe);
+  __webpack_require__(148).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -828,7 +867,7 @@ module.exports = Object.create || function create(O, Properties) {
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(26);
@@ -847,7 +886,7 @@ module.exports = __webpack_require__(5) ? Object.defineProperties : function def
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(4).document;
@@ -855,7 +894,7 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
@@ -874,7 +913,7 @@ module.exports = Object.getPrototypeOf || function (O) {
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(14);
@@ -897,7 +936,7 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var classof = __webpack_require__(110);
@@ -913,26 +952,26 @@ module.exports = __webpack_require__(11).isIterable = function (it) {
 
 
 /***/ }),
-/* 151 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(152), __esModule: true };
-
-/***/ }),
 /* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(106);
-__webpack_require__(109);
-module.exports = __webpack_require__(153);
-
+module.exports = { "default": __webpack_require__(153), __esModule: true };
 
 /***/ }),
 /* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(106);
+__webpack_require__(109);
+module.exports = __webpack_require__(154);
+
+
+/***/ }),
+/* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var anObject = __webpack_require__(24);
-var get = __webpack_require__(154);
+var get = __webpack_require__(155);
 module.exports = __webpack_require__(11).getIterator = function (it) {
   var iterFn = get(it);
   if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
@@ -941,7 +980,7 @@ module.exports = __webpack_require__(11).getIterator = function (it) {
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var classof = __webpack_require__(110);
@@ -955,7 +994,9 @@ module.exports = __webpack_require__(11).getIteratorMethod = function (it) {
 
 
 /***/ }),
-/* 155 */
+/* 156 */,
+/* 157 */,
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1057,19 +1098,19 @@ if (false) {
 }
 
 /***/ }),
-/* 156 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(157)
+  __webpack_require__(160)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(159)
+var __vue_script__ = __webpack_require__(162)
 /* template */
-var __vue_template__ = __webpack_require__(160)
+var __vue_template__ = __webpack_require__(163)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1108,13 +1149,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 157 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(158);
+var content = __webpack_require__(161);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1134,7 +1175,7 @@ if(false) {
 }
 
 /***/ }),
-/* 158 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -1148,24 +1189,161 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 159 */
+/* 162 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    details: {
+      type: Object,
+      default: {}
+    }
+  },
+  computed: {
+    latency: function latency() {
+      var latency = {
+        fastest: this.details.uptime_all[0].latency,
+        slowest: this.details.uptime_all[0].latency,
+        average: 0
+      };
+
+      for (var i = 0; i < this.details.uptime_all.length; ++i) {
+        var cur = this.details.uptime_all[i];
+        latency.average += cur.latency;
+        latency.fastest = latency.fastest < cur.latency ? latency.fastest : cur.latency;
+        latency.slowest = latency.slowest > cur.latency ? latency.slowest : cur.latency;
+      }
+
+      latency.average /= this.details.uptime_all.length;
+
+      return latency;
+    },
+    loadSpeed: function loadSpeed() {
+      var loadSpeed = {
+        fastest: this.details.uptime_all[0].loadSpeed,
+        slowest: this.details.uptime_all[0].loadSpeed,
+        average: 0
+      };
+
+      for (var i = 0; i < this.details.uptime_all.length; ++i) {
+        var cur = this.details.uptime_all[i];
+
+        loadSpeed.average += +cur.loadSpeed;
+        loadSpeed.fastest = loadSpeed.fastest < cur.loadSpeed ? loadSpeed.fastest : cur.loadSpeed;
+        loadSpeed.slowest = loadSpeed.slowest > cur.loadSpeed ? loadSpeed.slowest : cur.loadSpeed;
+      }
+      loadSpeed.average /= this.details.uptime_all.length;
+
+      return loadSpeed;
+    }
+  },
+  filters: {
+    round: function round(val) {
+      return Math.round(val);
+    },
+    fourDecimal: function fourDecimal(val) {
+      return parseFloat(val).toFixed(4);
+    }
+  }
+});
 
 /***/ }),
-/* 160 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "bg-white flex-col rounded overflow-hidden shadow-lg" },
+    [
+      _vm._m(0),
+      _c("div", { staticClass: "flex flex-col px-6 py-4" }, [
+        _c("h1", [_vm._v(_vm._s(_vm.details.name || _vm.details.url))]),
+        _c("h2", [_vm._v(_vm._s(_vm.details.url))]),
+        _c("h3", [_vm._v(_vm._s(_vm.details.ipv4))]),
+        _c("hr"),
+        _vm.details.ssl
+          ? _c("div", [
+              _c("p", [
+                _vm._v(_vm._s(_vm.details.ssl_latest.days_left) + " Days Left")
+              ]),
+              _c("p", [_vm._v(_vm._s(_vm.details.ssl_latest.issuer))]),
+              _c("p", [
+                _vm._v(
+                  "Last Updated: " + _vm._s(_vm.details.ssl_latest.updated_at)
+                )
+              ])
+            ])
+          : _vm._e(),
+        _c("hr"),
+        _c("div", [
+          _c("p", [
+            _vm._v(
+              "Fastest Latency: " +
+                _vm._s(_vm._f("round")(_vm.latency.fastest)) +
+                " ms"
+            )
+          ]),
+          _c("p", [
+            _vm._v(
+              "Slowest Latency: " +
+                _vm._s(_vm._f("round")(_vm.latency.slowest)) +
+                " ms"
+            )
+          ]),
+          _c("p", [
+            _vm._v(
+              "Average Latency: " +
+                _vm._s(_vm._f("round")(_vm.latency.average)) +
+                " ms"
+            )
+          ])
+        ]),
+        _c("hr"),
+        _c("div", [
+          _c("p", [
+            _vm._v(
+              "Fastest Pageload speed: " +
+                _vm._s(_vm._f("fourDecimal")(_vm.loadSpeed.fastest)) +
+                " s"
+            )
+          ]),
+          _c("p", [
+            _vm._v(
+              "Slowest Pageload speed: " +
+                _vm._s(_vm._f("fourDecimal")(_vm.loadSpeed.slowest)) +
+                " s"
+            )
+          ]),
+          _c("p", [
+            _vm._v(
+              "Average Pageload speed: " +
+                _vm._s(_vm._f("fourDecimal")(_vm.loadSpeed.average)) +
+                " s"
+            )
+          ])
+        ]),
+        _c("hr"),
+        _vm._m(1),
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue hover:bg-blue-dark text-white font-bold mb-6 mx-6 my-4 py-2  px-4 rounded-full float-right opacity-50 cursor-not-allowed",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("More Stats...")]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -1174,24 +1352,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "bg-white flex-col rounded overflow-hidden shadow-lg" },
-      [
-        _c("div", { staticClass: "px-6 py-4 text-center border-b bg-grey" }, [
-          _c("h2", [_vm._v("Stats")])
-        ]),
-        _c("div", { staticClass: "flex flex-col" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "bg-blue hover:bg-blue-dark text-white font-bold mb-6 mx-6 my-4 py-2  px-4 rounded-full float-right",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("More Stats...")]
-          )
-        ])
-      ]
+      { staticClass: "px-6 py-4 text-center border-b bg-grey" },
+      [_c("h2", [_vm._v("Stats")])]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("p", [_vm._v("Uptime: (Coming Soon!)")])])
   }
 ]
 render._withStripped = true
@@ -1204,19 +1373,19 @@ if (false) {
 }
 
 /***/ }),
-/* 161 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(162)
+  __webpack_require__(165)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(164)
+var __vue_script__ = __webpack_require__(167)
 /* template */
-var __vue_template__ = __webpack_require__(167)
+var __vue_template__ = __webpack_require__(168)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1255,13 +1424,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 162 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(163);
+var content = __webpack_require__(166);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1281,7 +1450,7 @@ if(false) {
 }
 
 /***/ }),
-/* 163 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -1295,28 +1464,27 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 164 */
+/* 167 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_mixins__ = __webpack_require__(111);
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_mixins__["a" /* getWebsites */]],
   data: function data() {
     return {
-      websites: [],
       sortBy: {
         column: '',
         order: 0
       },
       classes: {
-        name: 'w-1/3 md:w-1/4 flex items-center px-2',
+        name: 'w-2/3 md:w-1/4 flex items-center px-2',
         url: 'md:w-2/5 hidden md:flex items-center px-2',
-        uptime: 'w-1/3 m:w-1/5 flex items-center px-2',
+        uptime: 'w-1/3 md:w-1/5 hidden sm:flex items-center px-2',
         btn: 'w-1/3 md:w-1/4 flex items-center px-2'
       }
     };
@@ -1326,24 +1494,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    getWebsites: function getWebsites() {
-      var _this = this;
-
-      axios.get('/api/website').then(function (data) {
-        console.log(JSON.parse(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(data.data)));
-        _this.websites = data.data;
-      });
-    },
     deleteSite: function deleteSite(id) {
-      var _this2 = this;
+      var _this = this;
 
       axios.delete('/api/website/' + id).then(function (data) {
         console.log('Website Deleted');
-        _this2.getWebsites();
+        _this.getWebsites();
       });
     },
     sortBySSL: function sortBySSL() {
-      var _this3 = this;
+      var _this2 = this;
 
       if (this.sortBy.column === 'SSL') {
         this.sortBy.order = ++this.sortBy.order % 2;
@@ -1354,11 +1514,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
       }
       this.websites = this.websites.sort(function (a, b) {
-        return _this3.sortBy.order === 0 ? a.ssl_latest.days_left - b.ssl_latest.days_left : b.ssl_latest.days_left - a.ssl_latest.days_left;
+        return _this2.sortBy.order === 0 ? a.ssl_latest.days_left - b.ssl_latest.days_left : b.ssl_latest.days_left - a.ssl_latest.days_left;
       });
     },
     sortByURL: function sortByURL() {
-      var _this4 = this;
+      var _this3 = this;
 
       if (this.sortBy.column === 'URL') {
         this.sortBy.order = ++this.sortBy.order % 2;
@@ -1371,11 +1531,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.websites = this.websites.sort(function (a, b) {
         var nameA = a.url.toLowerCase();
         var nameB = b.url.toLowerCase();
-        return _this4.sortBy.order === 0 ? nameA > nameB ? 1 : nameA < nameB ? -1 : 0 : nameA > nameB ? -1 : nameA < nameB ? 1 : 0;
+        return _this3.sortBy.order === 0 ? nameA > nameB ? 1 : nameA < nameB ? -1 : 0 : nameA > nameB ? -1 : nameA < nameB ? 1 : 0;
       });
     },
     sortByName: function sortByName() {
-      var _this5 = this;
+      var _this4 = this;
 
       if (this.sortBy.column === 'Name') {
         this.sortBy.order = ++this.sortBy.order % 2;
@@ -1388,31 +1548,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.websites = this.websites.sort(function (a, b) {
         var nameA = a.name.toUpperCase();
         var nameB = b.name.toUpperCase();
-        return _this5.sortBy.order === 0 ? nameA > nameB ? 1 : nameA < nameB ? -1 : 0 : nameA > nameB ? -1 : nameA < nameB ? 1 : 0;
+        return _this4.sortBy.order === 0 ? nameA > nameB ? 1 : nameA < nameB ? -1 : 0 : nameA > nameB ? -1 : nameA < nameB ? 1 : 0;
       });
+    },
+    selectSite: function selectSite(site) {
+      this.$emit('showDetails', site);
     }
   }
 });
 
 /***/ }),
-/* 165 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(166), __esModule: true };
-
-/***/ }),
-/* 166 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var core = __webpack_require__(11);
-var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
-module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
-  return $JSON.stringify.apply($JSON, arguments);
-};
-
-
-/***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1429,53 +1575,79 @@ var render = function() {
       _vm._m(0),
       _c(
         "div",
-        { staticClass: "flex flex-col px-6 py-4" },
+        { staticClass: "flex flex-col px-1 md:px-6 py-4" },
         [
-          _c("div", { staticClass: "flex flex-row border-b border-t p-2" }, [
-            _c(
-              "div",
-              {
-                staticClass: "cursor-pointer",
-                class: _vm.classes.name,
-                on: { click: _vm.sortByName }
-              },
-              [_c("strong", [_vm._v("Name")])]
-            ),
-            _c(
-              "div",
-              {
-                staticClass: "cursor-pointer",
-                class: _vm.classes.url,
-                on: { click: _vm.sortByURL }
-              },
-              [_c("strong", [_vm._v("URL")])]
-            ),
-            _c(
-              "div",
-              {
-                staticClass: "cursor-pointer",
-                class: _vm.classes.uptime,
-                on: { click: _vm.sortBySSL }
-              },
-              [_c("strong", [_vm._v("SSL Days Left")])]
-            ),
-            _c("div", { class: _vm.classes.btn }, [
-              _c("strong", [_vm._v("Details")])
-            ])
-          ]),
-          _vm._l(_vm.websites, function(site) {
+          _c(
+            "div",
+            { staticClass: "flex flex-row border-b border-t md:px-2 py-2" },
+            [
+              _c("div", { class: _vm.classes.btn }, [
+                _c("strong", [_vm._v("Select")])
+              ]),
+              _c(
+                "div",
+                {
+                  staticClass: "cursor-pointer",
+                  class: _vm.classes.name,
+                  on: { click: _vm.sortByName }
+                },
+                [_c("strong", [_vm._v("Name")])]
+              ),
+              _c(
+                "div",
+                {
+                  staticClass: "cursor-pointer",
+                  class: _vm.classes.url,
+                  on: { click: _vm.sortByURL }
+                },
+                [_c("strong", [_vm._v("URL")])]
+              ),
+              _c(
+                "div",
+                {
+                  staticClass: "cursor-pointer",
+                  class: _vm.classes.uptime,
+                  on: { click: _vm.sortBySSL }
+                },
+                [_c("strong", [_vm._v("SSL Days Left")])]
+              ),
+              _c("div", { class: _vm.classes.btn }, [
+                _c("strong", [_vm._v("Details")])
+              ])
+            ]
+          ),
+          _vm._l(_vm.$store.state.websites, function(site) {
             return _c(
               "div",
-              { staticClass: "flex flex-row border-b border-t p-2" },
+              { staticClass: "flex flex-row border-b border-t md:px-2 py-2" },
               [
+                _c("div", { class: _vm.classes.btn }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full",
+                      on: {
+                        click: function($event) {
+                          _vm.selectSite(site)
+                        }
+                      }
+                    },
+                    [_vm._v("Select")]
+                  )
+                ]),
                 _c("div", { class: _vm.classes.name }, [
-                  _vm._v(_vm._s(site.name))
+                  _c("p", [_vm._v(_vm._s(site.name || site.url))])
                 ]),
                 _c("div", { class: _vm.classes.url }, [
-                  _vm._v(_vm._s(site.url))
+                  _c("p", [_vm._v(_vm._s(site.url))])
                 ]),
                 _c("div", { class: _vm.classes.uptime }, [
-                  _vm._v(_vm._s(site.ssl_latest.days_left) + " Days Left")
+                  site.ssl_latest
+                    ? _c("p", [
+                        _vm._v(_vm._s(site.ssl_latest.days_left) + " Days Left")
+                      ])
+                    : _c("p", [_vm._v("No SSL")])
                 ]),
                 _c("div", { class: _vm.classes.btn }, [
                   _c(
@@ -1523,7 +1695,7 @@ if (false) {
 }
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1536,14 +1708,24 @@ var render = function() {
       { staticClass: "flex flex-col md:flex-row container mx-auto" },
       [
         _c("add-website-widget", { staticClass: "my-3 md:m-6" }),
-        _c("stats-widget", { staticClass: "my-3 md:m-6" })
+        _vm.details
+          ? _c("stats-widget", {
+              staticClass: "my-3 md:m-6",
+              attrs: { details: _vm.details }
+            })
+          : _vm._e()
       ],
       1
     ),
     _c(
       "div",
       { staticClass: "flex flex-col md:flex-row container" },
-      [_c("website-list", { staticClass: "my-3 md:m-6" })],
+      [
+        _c("website-list", {
+          staticClass: "my-3 md:m-6",
+          on: { showDetails: _vm.showDetails }
+        })
+      ],
       1
     )
   ])

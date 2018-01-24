@@ -24,8 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('ssl:check')
+        $schedule->command('sites:ssl')
                  ->daily();
+        $schedule->command('sites:uptime')
+                 ->everyMinute();
     }
 
     /**

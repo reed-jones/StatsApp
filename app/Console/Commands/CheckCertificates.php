@@ -15,7 +15,7 @@ class CheckCertificates extends Command
      *
      * @var string
      */
-    protected $signature = 'ssl:check';
+    protected $signature = 'sites:ssl';
 
     /**
      * The console command description.

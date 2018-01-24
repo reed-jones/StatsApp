@@ -10,4 +10,6 @@ export default {}
 <style lang="stylus">
 .landing-page
   background-image linear-gradient(120deg, #fccb90 0%, #d57eeb 100%)
+  h1
+    font 2rem  'Righteous', cursive
 </style>
