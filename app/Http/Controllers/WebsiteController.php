@@ -78,7 +78,8 @@ class WebsiteController extends Controller
         if ($latency) {
             $time_start = microtime(true);
             $client = new \GuzzleHttp\Client();
-            $res = $client->request('GET', $website->url);
+            $protocol = $site->ssl ? 'https://' : 'http://';
+            $res = $client->request('GET', $protocol . $site->url);
             //echo $res->getStatusCode();
             $t = $res->getBody();
             $time_end = microtime(true);
