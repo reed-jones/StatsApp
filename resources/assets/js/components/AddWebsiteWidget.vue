@@ -53,7 +53,7 @@ export default {
         .post('/api/website', { ...this.sitesForm })
         .then(data => {
           this.getWebsites()
-          preValidation = {
+          this.preValidation = {
             url: '',
             name: '',
           }

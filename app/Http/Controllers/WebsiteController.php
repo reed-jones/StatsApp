@@ -65,7 +65,7 @@ class WebsiteController extends Controller
 
         $website = new Website();
         $website->user_id = $request->user()->id;
-        $website->url = $url;
+        $website->url = rtrim($url,"/");;
         $website->ssl = $protocol === 'https://';
         $website->name = $request->name;
         $website->save();
