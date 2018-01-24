@@ -56,7 +56,7 @@ class WebsiteController extends Controller
         $protocol = $matches[1];
         $url = $matches[2];
 
-        if ($url) {
+        if (!$url) {
             return response(
             [
                 'error' => 'Invalid URL'
