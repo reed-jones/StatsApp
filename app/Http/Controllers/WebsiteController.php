@@ -79,7 +79,7 @@ class WebsiteController extends Controller
             $time_start = microtime(true);
             $client = new \GuzzleHttp\Client();
             $protocol = $website->ssl ? 'https://' : 'http://';
-            $res = $client->request('GET', $protocol . $site->url);
+            $res = $client->request('GET', $protocol . $website->url);
             //echo $res->getStatusCode();
             $t = $res->getBody();
             $time_end = microtime(true);
