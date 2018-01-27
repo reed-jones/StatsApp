@@ -21,7 +21,7 @@ class WebsiteController extends Controller
         // return \Auth::user()->websites;
         $sites = [];
         // $return Website::where('user_id', \Auth::user()->id)
-        $websites = Website::where('user_id', 1)
+        $websites = Website::where('user_id', \Auth::user()->id)
         ->with('sslLatest')
         ->with('uptimeAll')
         ->get();
