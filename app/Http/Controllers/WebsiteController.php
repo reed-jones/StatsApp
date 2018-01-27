@@ -19,11 +19,33 @@ class WebsiteController extends Controller
     public function index()
     {
         // return \Auth::user()->websites;
-
-        return Website::where('user_id', \Auth::user()->id)
+        $sites = [];
+        // $return Website::where('user_id', \Auth::user()->id)
+        $websites = Website::where('user_id', 1)
         ->with('sslLatest')
         ->with('uptimeAll')
         ->get();
+
+        foreach($websites as $site) {
+            array_push($sites, [
+                'url' => $site->url,
+                'name' => $site->name,
+                'ssl' => $site->ssl,
+                'ipv4' => $site->ipv4,
+                'sslLatest' => $site->sslLatest,
+                'latency' => [
+                    'fastest' => $site->uptimeAll->min('latency'),
+                    'slowest' => $site->uptimeAll->max('latency'),
+                    'median' => $site->uptimeAll->median('latency'),
+                ],
+                'loadSpeed' => [
+                    'fastest' => $site->uptimeAll->min('loadSpeed'),
+                    'slowest' => $site->uptimeAll->max('loadSpeed'),
+                    'median' => $site->uptimeAll->median('loadSpeed'),
+                ],
+            ]);
+        }
+        return $sites;
     }
 
     /**

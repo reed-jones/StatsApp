@@ -8,19 +8,19 @@
       h3 {{ details.ipv4 }}
       hr
       div(v-if='details.ssl')
-        p {{ details.ssl_latest.days_left }} Days Left
-        p {{ details.ssl_latest.issuer }}
-        p Last Updated: {{ details.ssl_latest.updated_at }}
+        p {{ details.sslLatest.days_left }} Days Left
+        p {{ details.sslLatest.issuer }}
+        p Last Updated: {{ details.sslLatest.updated_at }}
       hr
       div
-        p Fastest Latency: {{ latency.fastest | round }} ms
-        p Slowest Latency: {{ latency.slowest | round }} ms
-        p Average Latency: {{ latency.average | round }} ms
+        p Fastest Latency: {{ details.latency.fastest | round }} ms
+        p Slowest Latency: {{ details.latency.slowest | round }} ms
+        p Median Latency: {{ details.latency.median | round }} ms
       hr
       div
-        p Fastest Pageload speed: {{ loadSpeed.fastest | fourDecimal }} s
-        p Slowest Pageload speed: {{ loadSpeed.slowest | fourDecimal }} s
-        p Average Pageload speed: {{ loadSpeed.average | fourDecimal }} s
+        p Fastest Pageload speed: {{ details.loadSpeed.fastest | fourDecimal }} s
+        p Slowest Pageload speed: {{ details.loadSpeed.slowest | fourDecimal }} s
+        p Median Pageload speed: {{ details.loadSpeed.median | fourDecimal }} s
       hr
       div
         p Uptime: (Coming Soon!)
@@ -40,53 +40,48 @@ export default {
     },
   },
   computed: {
-    latency() {
-      let latency = {
-        fastest: this.details.uptime_all[0].latency,
-        slowest: this.details.uptime_all[0].latency,
-        average: 0,
-      }
-
-      for (let i = 0; i < this.details.uptime_all.length; ++i) {
-        let cur = this.details.uptime_all[i]
-        latency.average += cur.latency
-        latency.fastest =
-          latency.fastest < cur.latency ? latency.fastest : cur.latency
-        latency.slowest =
-          latency.slowest > cur.latency ? latency.slowest : cur.latency
-      }
-
-      latency.average /= this.details.uptime_all.length
-
-      return latency
-    },
-    loadSpeed() {
-      let loadSpeed = {
-        fastest: this.details.uptime_all[0].loadSpeed,
-        slowest: this.details.uptime_all[0].loadSpeed,
-        average: 0,
-      }
-
-      for (let i = 0; i < this.details.uptime_all.length; ++i) {
-        let cur = this.details.uptime_all[i]
-        // console.log(cur.loadSpeed)
-        loadSpeed.average += +cur.loadSpeed
-        loadSpeed.fastest =
-          loadSpeed.fastest < cur.loadSpeed ? loadSpeed.fastest : cur.loadSpeed
-        loadSpeed.slowest =
-          loadSpeed.slowest > cur.loadSpeed ? loadSpeed.slowest : cur.loadSpeed
-      }
-      loadSpeed.average /= this.details.uptime_all.length
-
-      return loadSpeed
-    },
+    // latency() {
+    //   let latency = {
+    //     fastest: this.details.uptime_all[0].latency,
+    //     slowest: this.details.uptime_all[0].latency,
+    //     average: 0,
+    //   }
+    //   for (let i = 0; i < this.details.uptime_all.length; ++i) {
+    //     let cur = this.details.uptime_all[i]
+    //     latency.average += cur.latency
+    //     latency.fastest =
+    //       latency.fastest < cur.latency ? latency.fastest : cur.latency
+    //     latency.slowest =
+    //       latency.slowest > cur.latency ? latency.slowest : cur.latency
+    //   }
+    //   latency.average /= this.details.uptime_all.length
+    //   return latency
+  },
+  loadSpeed() {
+    // let loadSpeed = {
+    //   fastest: this.details.uptime_all[0].loadSpeed,
+    //   slowest: this.details.uptime_all[0].loadSpeed,
+    //   average: 0,
+    // }
+    // for (let i = 0; i < this.details.uptime_all.length; ++i) {
+    //   let cur = this.details.uptime_all[i]
+    //   // console.log(cur.loadSpeed)
+    //   loadSpeed.average += +cur.loadSpeed
+    //   loadSpeed.fastest =
+    //     loadSpeed.fastest < cur.loadSpeed ? loadSpeed.fastest : cur.loadSpeed
+    //   loadSpeed.slowest =
+    //     loadSpeed.slowest > cur.loadSpeed ? loadSpeed.slowest : cur.loadSpeed
+    // }
+    // loadSpeed.average /= this.details.uptime_all.length
+    // return loadSpeed
+    // },
   },
   filters: {
     round(val) {
-      return Math.round(val)
+      return Math.round(+val)
     },
     fourDecimal(val) {
-      return parseFloat(val).toFixed(4)
+      return parseFloat(+val).toFixed(4)
     },
     // latencyFastest(all) {
     //   fastest = all[0]

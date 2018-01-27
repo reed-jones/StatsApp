@@ -22,7 +22,7 @@ div(class="bg-white container mx-auto rounded overflow-hidden shadow-lg")
         div(:class="classes.url")
           p {{ site.url }}
         div(:class="classes.uptime")
-          p(v-if='site.ssl_latest') {{ site.ssl_latest.days_left }} Days Left
+          p(v-if='site.sslLatest') {{ site.sslLatest.days_left }} Days Left
           p(v-else) No SSL
         div(:class="classes.btn")
           button(class="bg-red hover:bg-red-dark text-white font-bold py-2 px-4 rounded-full" @click='deleteSite(site.id)') Remove
@@ -66,10 +66,12 @@ export default {
           order: 0,
         }
       }
-      this.websites = this.websites.sort((a, b) => {
-        return this.sortBy.order === 0
-          ? a.ssl_latest.days_left - b.ssl_latest.days_left
-          : b.ssl_latest.days_left - a.ssl_latest.days_left
+      let arr = this.$store.state.websites.sort((a, b) => {
+        // set days left to -1 if no valid SSL is found
+        let ssl_A = a.ssl ? a.sslLatest.days_left : -1
+        let ssl_B = b.ssl ? b.sslLatest.days_left : -1
+
+        return this.sortBy.order === 0 ? ssl_A - ssl_B : ssl_B - ssl_A
       })
     },
     sortByURL() {
@@ -81,9 +83,10 @@ export default {
           order: 0,
         }
       }
-      this.websites = this.websites.sort((a, b) => {
-        const nameA = a.url.toLowerCase() // ignore upper and lowercase
-        const nameB = b.url.toLowerCase() // ignore upper and lowercase
+
+      this.websites = this.$store.state.websites.sort((a, b) => {
+        const nameA = a.url.toLowerCase() // ignore letterCase
+        const nameB = b.url.toLowerCase() // ignore letterCase
         return this.sortBy.order === 0
           ? nameA > nameB ? 1 : nameA < nameB ? -1 : 0
           : nameA > nameB ? -1 : nameA < nameB ? 1 : 0
@@ -98,9 +101,9 @@ export default {
           order: 0,
         }
       }
-      this.websites = this.websites.sort((a, b) => {
-        const nameA = a.name.toUpperCase() // ignore upper and lowercase
-        const nameB = b.name.toUpperCase() // ignore upper and lowercase
+      this.websites = this.$store.state.websites.sort((a, b) => {
+        const nameA = a.name.toUpperCase() // ignore letterCase
+        const nameB = b.name.toUpperCase() // ignore letterCase
         return this.sortBy.order === 0
           ? nameA > nameB ? 1 : nameA < nameB ? -1 : 0
           : nameA > nameB ? -1 : nameA < nameB ? 1 : 0
